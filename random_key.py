@@ -1,36 +1,36 @@
 from random import shuffle, randint
-from string import ascii_letters, digits
+from string import ascii_lowercase, digits
 import pygame #cmd 창에서 pip install pygame 명령 실행
 pygame.init()
 
-abc = list(ascii_letters) + list(digits)
+abc = list(ascii_lowercase) + list(digits)
 floor = 1
-go_up = None
-go_down = None
-reset_it = None
 font = pygame.font.Font('나눔명조',30)
 
-def amugona():
-    global go_up, go_down, reset_it
-    shuffle(abc)
-    go_up = str(abc[0])
-    go_down = str(abc[1])
-    reset_it = str(abc[2])
+shuffle(abc)
+# 아래층, 1층, 위층
+key1 = [str(abc[0]), str(abc[1]), None]
+key2 = abc[2:4]
+key3 = abc[5:7]
+key4 = abc[8:10]
+key5 = abc[11:13]
+key6 = abc[14:16]
+key7 = abc[17:19]
+key8 = abc[20:22]
+key9 = abc[23:25]
+key10 = [None, None, None]
 
 def floorup():
     global floor
     floor = floor + 1
-    amugona()
 
 def floordown():
     global floor
     floor = floor - 1
-    amugona()
 
 def reset():
     global floor
     floor = 1
-    amugona()
 
 #PyGame 함수 선언
 BLACK= ( 0,  0,  0)
@@ -50,6 +50,7 @@ while not done:
     clock.tick(30)  #FPS 설정
     if floor == 10:
         done = True
+    #층수 확인 후 키 할당 명령어 필요
     for event in pygame.event.get(): #GUI 종료 시
         if event.type == pygame.QUIT:
             done = True
