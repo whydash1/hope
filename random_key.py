@@ -48,6 +48,8 @@ pygame.display.set_caption("Hope")
 
 while not done:
     clock.tick(30)  #FPS 설정
+    if floor == 10:
+        done = True
     for event in pygame.event.get(): #GUI 종료 시
         if event.type == pygame.QUIT:
             done = True
