@@ -45,9 +45,6 @@ screen = pygame.display.set_mode(size)
 done = False
 pygame.display.set_caption("Hope")
 fontObj = pygame.font.Font(None, 32)
-textSurfaceObj = fontObj.render('Hello Font!', True, GREEN)
-textRectObj = textSurfaceObj.get_rect()
-textRectObj.center = (150, 150)
 
 while not done:
     pygame.time.Clock().tick(60)
