@@ -1,57 +1,57 @@
 from random import shuffle, randint
-from string import ascii_lowercase, digits
+from string import ascii_letters, digits
 import pygame #cmd 창에서 pip install pygame 명령 실행
-pygame.init()
 
-abc = list(ascii_lowercase) + list(digits)
+abc = list(ascii_letters) + list(digits)
 floor = 1
-font = pygame.font.Font('나눔명조',30)
+go_up = None
+go_down = None
+reset_it = None
 
-shuffle(abc)
-# 아래층, 1층, 위층
-key1 = [str(abc[0]), str(abc[1]), None]
-key2 = abc[2:4]
-key3 = abc[5:7]
-key4 = abc[8:10]
-key5 = abc[11:13]
-key6 = abc[14:16]
-key7 = abc[17:19]
-key8 = abc[20:22]
-key9 = abc[23:25]
-key10 = [None, None, None]
+def amugona():
+    global go_up, go_down, reset_it
+    shuffle(abc)
+    go_up = str(abc[0])
+    go_down = str(abc[1])
+    reset_it = str(abc[2])
 
 def floorup():
     global floor
     floor = floor + 1
+    amugona()
 
 def floordown():
     global floor
     floor = floor - 1
+    amugona()
 
 def reset():
     global floor
     floor = 1
+    amugona()
 
 #PyGame 함수 선언
+pygame.init()
 BLACK= ( 0,  0,  0)
 WHITE= (255,255,255)
 BLUE = ( 0,  0,255)
 GREEN= ( 0,255,  0)
 RED  = (255,  0,  0)
+SKYBLUE = (80, 188, 233)
+GRAY = (128, 128, 128)
 
 size = [640, 360]
 screen = pygame.display.set_mode(size)
 done = False
-clock = pygame.time.Clock
-
 pygame.display.set_caption("Hope")
+fontObj = pygame.font.Font(None, 32)
+textSurfaceObj = fontObj.render('Hello Font!', True, GREEN)
+textRectObj = textSurfaceObj.get_rect()
+textRectObj.center = (150, 150)
 
 while not done:
-    clock.tick(30)  #FPS 설정
-    if floor == 10:
-        done = True
-    #층수 확인 후 키 할당 명령어 필요
-    for event in pygame.event.get(): #GUI 종료 시
+    pygame.time.Clock().tick(60)
+    for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
         if event.type == pygame.KEYDOWN:
@@ -63,7 +63,16 @@ while not done:
                 floordown()
             elif buttons[0] == reset_it:
                 reset()
+            else:
+                continue
     screen.fill(WHITE)
-    #게임 코드 입력
-    #그리기 입력
+    pygame.draw.rect(screen, GRAY, [270, 50, 100, 150]) # 문 기본
+    pygame.draw.rect(screen, BLACK, [270, 50, 100, 150], 4) #문 윤곽
+    pygame.draw.rect(screen, GRAY, [270, 25, 100, 25]) #상단부
+    pygame.draw.rect(screen, BLACK, [270, 25, 100, 25], 4) #상단부 윤곽
+    pygame.draw.rect(screen, BLACK, [280, 29, 80, 18]) #전광판
+    pygame.draw.line(screen, BLACK, [320, 50], [320, 200], 2) #문 가운데 선
+    pygame.draw.rect(screen, SKYBLUE, [0, 200, 640, 160]) #바닥
     pygame.display.flip()
+
+quit()
