@@ -1,8 +1,8 @@
 from random import shuffle, randint
-from string import ascii_letters, digits
+from string import ascii_lowercase, digits
 import pygame #cmd 창에서 pip install pygame 명령 실행
 
-abc = list(ascii_letters) + list(digits)
+abc = list(ascii_lowercase) + list(digits)
 floor = 1
 go_up = None
 go_down = None
@@ -14,6 +14,7 @@ def amugona():
     go_up = str(abc[0])
     go_down = str(abc[1])
     reset_it = str(abc[2])
+    print(go_up)
 
 def floorup():
     global floor
@@ -44,7 +45,11 @@ size = [640, 360]
 screen = pygame.display.set_mode(size)
 done = False
 pygame.display.set_caption("Hope")
-fontObj = pygame.font.Font(None, 32)
+font = pygame.font.Font(None, 32) #시스템 글꼴 지정
+text = font.render(str(floor), True, RED)
+textRect = text.get_rect()
+textRect.center = (150, 150)
+amugona()
 
 while not done:
     pygame.time.Clock().tick(60)
@@ -54,6 +59,7 @@ while not done:
         if event.type == pygame.KEYDOWN:
             pressed = pygame.key.get_pressed()
             buttons= [pygame.key.name(k) for k,v in enumerate(pressed) if v]
+            print(buttons[0])
             if buttons[0] == go_up:
                 floorup()
             elif buttons[0] ==  go_down:
@@ -62,6 +68,7 @@ while not done:
                 reset()
             else:
                 continue
+    text = font.render(str(floor), True, RED)
     screen.fill(WHITE)
     pygame.draw.rect(screen, GRAY, [270, 50, 100, 150]) # 문 기본
     pygame.draw.rect(screen, BLACK, [270, 50, 100, 150], 4) #문 윤곽
@@ -70,6 +77,6 @@ while not done:
     pygame.draw.rect(screen, BLACK, [280, 29, 80, 18]) #전광판
     pygame.draw.line(screen, BLACK, [320, 50], [320, 200], 2) #문 가운데 선
     pygame.draw.rect(screen, SKYBLUE, [0, 200, 640, 160]) #바닥
+    screen.blit(text, textRect)
     pygame.display.flip()
-
 quit()
