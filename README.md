@@ -1,18 +1,51 @@
-# hope
-10층에 가는 게임
+# 🛗 10th Floor Delivery Challenge
 
-이 게임은 항아리 게임을 보고 영감을 얻어 만든 게임이다.
+**Inspired by _Getting Over It_.**
 
-어느 한 아파트, 치킨 배달부가 들어왔다.
-그는 10층으로 가기 위해 엘리베이터에 들어왔다.
-그런데, 버튼이 있어야 할 자리에 키보드가 있다.
-'뭐야 이거'라고 생각한 그는 뒤를 돌아보았다.
-뒤에는 안내문이 있었다.
-"이 엘리베이터는 버튼 대신 키를 누르는 방식입니다.
- 키는 수동식 엘리베이터에 맞게 세 키가 1층, 위층, 아래층 버튼에 할당되어 있습니다.
- 하지만, 호환 문제로 인해 키가 층마다 임의로 설정됩니다.
- 주민 여러분의 양해를 부탁드리며, 해당 키를 써드리겠습니다.
- 1층| 1층 키 ..."
- 스토리 진행을 위해 제작자가 아래 부분을 찢어놓았다.
- 배달부는 그냥 계단으로 올라가야겠다고 생각했으나, 곧 계단이 수리 중이여서 이용할 수 없다는 안내방송을 듣게 되었다.
- 지금 야발을 외치고 있는 이 배달부는 과연 치킨을 무사히 배달할 수 있을 것인가?
+---
+
+## 📖 Story
+
+One day, a chicken delivery guy arrives at an apartment building.  
+He steps into the elevator to go to the 10th floor — but instead of regular buttons, there's... a keyboard.
+
+> "What the heck is this?"
+
+Turning around, he finds a notice:
+
+> **Notice**  
+> - This elevator uses keys instead of buttons.  
+> - Three keys are assigned:  
+>   - 1st floor  
+>   - Move up  
+>   - Move down  
+> - **Important:** Due to technical issues, the keys are randomly assigned **on each floor**.  
+> Thank you for your understanding.
+
+(Unfortunately, the key assignment list has been torn off — thanks to the developer.)
+
+Frustrated, the delivery guy decides to take the stairs...  
+But an announcement immediately blares through the speakers:
+
+> **"Attention: The stairs are currently under maintenance. Please use the elevator."**
+
+Now screaming internally (and maybe externally), the delivery guy has no choice.
+
+**Will he survive this cursed elevator and deliver the chicken?**
+
+---
+
+## 🎮 How to Play
+
+- Navigate the elevator using the three assigned keys.
+- Remember: **The keys change every floor.**
+- Make it to the 10th floor to complete the delivery!
+
+---
+
+## 🛠️ Development
+
+- Game inspired by "Getting Over It" — designed to challenge your patience (and your sanity).
+- Story elements intentionally designed to create tension and humor.
+
+---
